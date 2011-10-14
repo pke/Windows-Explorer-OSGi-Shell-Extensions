@@ -1,0 +1,59 @@
+HKCR {
+	NoRemove CLSID {
+		ForceRemove '{d480098c-c50d-430e-bdec-aaab424078e5}' = s 'Bundle Shell Extensions' {
+			InprocServer32 = s '%MODULE%' {
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+    
+	NoRemove .jar {
+		NoRemove shellex {
+			{00021500-0000-0000-C000-000000000046} = s '{d480098c-c50d-430e-bdec-aaab424078e5}'
+		}
+		val InfoTip = s 'prop:Title;Author;Company;Size'
+	}
+	
+	NoRemove jarfile {
+		NoRemove DefaultIcon = s '%%1'
+		NoRemove shellex {
+			ForceRemove IconHandler = s '{d480098c-c50d-430e-bdec-aaab424078e5}'
+		}
+	}
+	
+	NoRemove .MF {
+		NoRemove shellex {
+			{00021500-0000-0000-C000-000000000046} = s '{d480098c-c50d-430e-bdec-aaab424078e5}'
+		}
+	}
+	
+	NoRemove Folder {
+		NoRemove Shellex {
+			{00021500-0000-0000-C000-000000000046} = s '{d480098c-c50d-430e-bdec-aaab424078e5}'
+			NoRemove ColumnHandlers {
+				ForceRemove {d480098c-c50d-430e-bdec-aaab424078e5} = s 'Bundle Shell Extensions'
+			}
+		}
+	}
+}
+
+HKLM {
+	NoRemove SOFTWARE {
+		NoRemove Microsoft {
+			NoRemove Windows {
+				NoRemove CurrentVersion { 
+					NoRemove Explorer {
+						NoRemove ShellIconOverlayIdentifiers {
+							
+						}
+					}
+					NoRemove 'Shell Extensions' {
+						NoRemove Approved {
+							ForceRemove {d480098c-c50d-430e-bdec-aaab424078e5} = s 'Bundle Shell Extensions'
+						}
+					}
+				}
+			}
+		}
+	}
+}

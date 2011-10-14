@@ -1,0 +1,14 @@
+*.dll
+*.exe
+*.exp
+*.ilk
+*.lib
+*.ncb
+*.log
+*.pdb
+*.aps
+*.res
+*.suo
+*.vcproj.*.user
+[Dd]ebug
+[Rr]elease
